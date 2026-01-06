@@ -76,16 +76,16 @@ SQL          ██████████░░░░░░░░░░░░�
 
 <p align="center">
   <a href="https://github.com/selvin-r">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/>
+    <img src="https://skillicons.dev/icons?i=github&theme=dark" />
   </a>
   <a href="https://www.linkedin.com/in/selvin-r-178776347/">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
+    <img src="https://skillicons.dev/icons?i=linkedin&theme=dark" />
   </a>
-  <a href="https://www.instagram.com/selvin_r_">
-    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
+  <a href="https://www.instagram.com/selvin__r">
+    <img src="https://skillicons.dev/icons?i=instagram&theme=dark" />
   </a>
   <a href="mailto:selvinn.r20@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
+    <img src="https://skillicons.dev/icons?i=gmail&theme=dark" />
   </a>
 </p>
 
