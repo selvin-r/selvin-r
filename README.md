@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SELVIN R | GitHub Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d1117;
+            min-height: 100vh;
+            color: #e6edf3;
+        }
+
+        /* Header */
+        .header {
+            background: #161b22;
+            padding: 15px 30px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header .logo {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .header .nav-links {
+            display: flex;
+            gap: 20px;
+            margin-left: auto;
+        }
+
+        .header .nav-links a {
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .header .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: block;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #238636, #2ea043);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            margin: 0 auto 20px;
+            border: 4px solid #30363d;
+            box-shadow: 0 0 30px rgba(46, 160, 67, 0.3);
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profile-username {
+            color: #8b949e;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .profile-bio {
+            color: #8b949e;
+            font-size: 0.9rem;
+            padding: 10px;
+            background: #161b22;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            margin-bottom: 15px;
+        }
+
+        .profile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .profile-links a,
+        .profile-links span {
+            color: #8b949e;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-links a:hover {
+            color: #58a6ff;
+        }
+
+        .profile-links i {
+            width: 16px;
+            color: #8b949e;
+        }
+
+        /* Content Area */
+        .content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .card-title {
+            color: #2ea043;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title i {
+            font-size: 0.8rem;
+        }
+
+        /* User Info Card */
+        .user-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+
+        .info-item i {
+            color: #8b949e;
+            width: 14px;
+        }
+
+        .info-item .highlight {
+            color: #2ea043;
+            font-weight: 600;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+
+        .stat-item i {
+            color: #8b949e;
+        }
+
+        .stat-item .number {
+            color: #e6edf3;
+            font-weight: 600;
+        }
+
+        /* Contribution Calendar */
+        .calendar-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+        }
+
+        .calendar-day {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            background: #161b22;
+            border: 1px solid #30363d;
+        }
+
+        .calendar-day.level-1 {
+            background: #0e4429;
+        }
+
+        .calendar-day.level-2 {
+            background: #006d32;
+        }
+
+        .calendar-day.level-3 {
+            background: #26a641;
+        }
+
+        .calendar-day.level-4 {
+            background: #39d353;
+        }
+
+        .streak-info {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+
+        .streak-info i {
+            color: #2ea043;
+            margin-right: 5px;
+        }
+
+        /* Activity Chart */
+        .activity-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 80px;
+            padding-top: 10px;
+        }
+
+        .activity-bar {
+            flex: 1;
+            background: linear-gradient(to top, #238636, #2ea043);
+            border-radius: 2px 2px 0 0;
+            min-height: 5px;
+            transition: height 0.3s;
+        }
+
+        .time-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #8b949e;
+            margin-top: 5px;
+        }
+
+        /* Language Activity */
+        .language-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .lang-name {
+            width: 80px;
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+
+        .lang-bar-container {
+            flex: 1;
+            height: 8px;
+            background: #21262d;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .lang-bar {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .lang-bar.javascript {
+            background: linear-gradient(90deg, #f7df1e, #f0d000);
+            width: 90%;
+        }
+
+        .lang-bar.html {
+            background: linear-gradient(90deg, #e34f26, #f16529);
+            width: 75%;
+        }
+
+        .lang-bar.css {
+            background: linear-gradient(90deg, #1572b6, #33a9dc);
+            width: 70%;
+        }
+
+        .lang-bar.java {
+            background: linear-gradient(90deg, #007396, #5382a1);
+            width: 65%;
+        }
+
+        .lang-bar.react {
+            background: linear-gradient(90deg, #61dafb, #00d8ff);
+            width: 60%;
+        }
+
+        .lang-percent {
+            font-size: 0.75rem;
+            color: #8b949e;
+            width: 40px;
+            text-align: right;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-icon {
+            width: 40px;
+            height: 40px;
+            background: #21262d;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: 1px solid #30363d;
+        }
+
+        .tech-icon:hover {
+            transform: scale(1.1);
+            border-color: #2ea043;
+            box-shadow: 0 0 15px rgba(46, 160, 67, 0.3);
+        }
+
+        .tech-icon.js {
+            color: #f7df1e;
+        }
+
+        .tech-icon.html {
+            color: #e34f26;
+        }
+
+        .tech-icon.css {
+            color: #1572b6;
+        }
+
+        .tech-icon.react {
+            color: #61dafb;
+        }
+
+        .tech-icon.java {
+            color: #007396;
+        }
+
+        .tech-icon.sql {
+            color: #4479a1;
+        }
+
+        .tech-icon.node {
+            color: #339933;
+        }
+
+        .tech-icon.python {
+            color: #3776ab;
+        }
+
+        /* Most Used Languages Bar */
+        .languages-bar {
+            display: flex;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .lang-segment {
+            transition: all 0.3s;
+        }
+
+        .lang-segment:hover {
+            filter: brightness(1.2);
+        }
+
+        .lang-segment.js {
+            background: #f7df1e;
+            flex: 3;
+        }
+
+        .lang-segment.html {
+            background: #e34f26;
+            flex: 2.5;
+        }
+
+        .lang-segment.css {
+            background: #1572b6;
+            flex: 2;
+        }
+
+        .lang-segment.java {
+            background: #007396;
+            flex: 1.5;
+        }
+
+        .lang-segment.react {
+            background: #61dafb;
+            flex: 1;
+        }
+
+        .lang-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.75rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #8b949e;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.js {
+            background: #f7df1e;
+        }
+
+        .legend-dot.html {
+            background: #e34f26;
+        }
+
+        .legend-dot.css {
+            background: #1572b6;
+        }
+
+        .legend-dot.java {
+            background: #007396;
+        }
+
+        .legend-dot.react {
+            background: #61dafb;
+        }
+
+        /* Full Width Card */
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Social Links */
+        .social-grid {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-btn.github {
+            background: #333;
+        }
+
+        .social-btn.linkedin {
+            background: #0077b5;
+        }
+
+        .social-btn.instagram {
+            background: linear-gradient(135deg, #833ab4, #e1306c, #f77737);
+        }
+
+        .social-btn.email {
+            background: #ea4335;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px;
+            }
+
+            .main-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="main-container">
+
+
+        <!-- Content Area -->
+        <main class="content">
+            <!-- User Info -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-user"></i> SELVIN R</div>
+                <div class="user-info-grid">
+                    <div class="info-item"><i class="fas fa-calendar"></i> Joined GitHub</div>
+                    <div class="info-item"><i class="fas fa-users"></i> Followers</div>
+                    <div class="info-item"><i class="fas fa-book"></i> <span class="highlight">Repositories</span></div>
+                    <div class="info-item"><i class="fas fa-code-branch"></i> Contributions</div>
+                </div>
+                <div class="stats-grid" style="margin-top: 15px;">
+                    <div class="stat-item"><i class="fas fa-heart"></i> <span class="number">0</span> Sponsors</div>
+                    <div class="stat-item"><i class="fas fa-star"></i> <span class="number">⭐</span> Stargazers</div>
+                    <div class="stat-item"><i class="fas fa-code-branch"></i> <span class="number">🍴</span> Forks</div>
+                    <div class="stat-item"><i class="fas fa-eye"></i> <span class="number">👀</span> Watchers</div>
+                </div>
+            </div>
+
+            <!-- Contribution Calendar -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-calendar-alt"></i> Contributions Calendar</div>
+                <div class="calendar-grid">
+                    <!-- Generate calendar days -->
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day level-1"></div>
+                    <div class="calendar-day level-2"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day level-3"></div>
+                    <div class="calendar-day level-1"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day level-4"></div>
+                    <div class="calendar-day level-2"></div>
+                    <div class="calendar-day level-1"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day level-3"></div>
+                    <div class="calendar-day level-4"></div>
+                    <div class="calendar-day level-2"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day level-1"></div>
+                    <div class="calendar-day level-3"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day level-2"></div>
+                    <div class="calendar-day level-4"></div>
+                    <div class="calendar-day level-1"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day level-2"></div>
+                    <div class="calendar-day level-3"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day level-1"></div>
+                    <div class="calendar-day level-4"></div>
+                    <div class="calendar-day level-2"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day level-3"></div>
+                    <div class="calendar-day level-1"></div>
+                    <div class="calendar-day level-2"></div>
+                    <div class="calendar-day"></div>
+                    <div class="calendar-day level-4"></div>
+                    <div class="calendar-day level-3"></div>
+                </div>
+                <div class="streak-info">
+                    <span><i class="fas fa-fire"></i> Current Streak</span>
+                    <span><i class="fas fa-chart-line"></i> Commits per day</span>
+                </div>
+            </div>
+
+            <!-- Coding Activity -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-code"></i> Commit Activity per Time of Day</div>
+                <div class="activity-bars">
+                    <div class="activity-bar" style="height: 15%;"></div>
+                    <div class="activity-bar" style="height: 10%;"></div>
+                    <div class="activity-bar" style="height: 5%;"></div>
+                    <div class="activity-bar" style="height: 5%;"></div>
+                    <div class="activity-bar" style="height: 8%;"></div>
+                    <div class="activity-bar" style="height: 12%;"></div>
+                    <div class="activity-bar" style="height: 20%;"></div>
+                    <div class="activity-bar" style="height: 35%;"></div>
+                    <div class="activity-bar" style="height: 45%;"></div>
+                    <div class="activity-bar" style="height: 55%;"></div>
+                    <div class="activity-bar" style="height: 70%;"></div>
+                    <div class="activity-bar" style="height: 85%;"></div>
+                    <div class="activity-bar" style="height: 75%;"></div>
+                    <div class="activity-bar" style="height: 90%;"></div>
+                    <div class="activity-bar" style="height: 100%;"></div>
+                    <div class="activity-bar" style="height: 95%;"></div>
+                    <div class="activity-bar" style="height: 80%;"></div>
+                    <div class="activity-bar" style="height: 70%;"></div>
+                    <div class="activity-bar" style="height: 60%;"></div>
+                    <div class="activity-bar" style="height: 50%;"></div>
+                    <div class="activity-bar" style="height: 40%;"></div>
+                    <div class="activity-bar" style="height: 35%;"></div>
+                    <div class="activity-bar" style="height: 25%;"></div>
+                    <div class="activity-bar" style="height: 20%;"></div>
+                </div>
+                <div class="time-labels">
+                    <span>00</span>
+                    <span>06</span>
+                    <span>12</span>
+                    <span>18</span>
+                    <span>23</span>
+                </div>
+            </div>
+
+            <!-- Language Activity -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-chart-pie"></i> Language Activity</div>
+                <div class="language-item">
+                    <span class="lang-name">JavaScript</span>
+                    <div class="lang-bar-container">
+                        <div class="lang-bar javascript"></div>
+                    </div>
+                    <span class="lang-percent">90%</span>
+                </div>
+                <div class="language-item">
+                    <span class="lang-name">HTML</span>
+                    <div class="lang-bar-container">
+                        <div class="lang-bar html"></div>
+                    </div>
+                    <span class="lang-percent">75%</span>
+                </div>
+                <div class="language-item">
+                    <span class="lang-name">CSS</span>
+                    <div class="lang-bar-container">
+                        <div class="lang-bar css"></div>
+                    </div>
+                    <span class="lang-percent">70%</span>
+                </div>
+                <div class="language-item">
+                    <span class="lang-name">Java</span>
+                    <div class="lang-bar-container">
+                        <div class="lang-bar java"></div>
+                    </div>
+                    <span class="lang-percent">65%</span>
+                </div>
+                <div class="language-item">
+                    <span class="lang-name">React</span>
+                    <div class="lang-bar-container">
+                        <div class="lang-bar react"></div>
+                    </div>
+                    <span class="lang-percent">60%</span>
+                </div>
+            </div>
+
+            <!-- Mastered Technologies -->
+            <div class="card full-width">
+                <div class="card-title"><i class="fas fa-toolbox"></i> Mastered Technologies and Topics</div>
+                <div class="tech-grid">
+                    <div class="tech-icon js"><i class="fab fa-js-square"></i></div>
+                    <div class="tech-icon html"><i class="fab fa-html5"></i></div>
+                    <div class="tech-icon css"><i class="fab fa-css3-alt"></i></div>
+                    <div class="tech-icon react"><i class="fab fa-react"></i></div>
+                    <div class="tech-icon java"><i class="fab fa-java"></i></div>
+                    <div class="tech-icon sql"><i class="fas fa-database"></i></div>
+                    <div class="tech-icon node"><i class="fab fa-node-js"></i></div>
+                    <div class="tech-icon" style="color: #f7df1e;"><i class="fab fa-npm"></i></div>
+                    <div class="tech-icon" style="color: #61dafb;"><i class="fas fa-terminal"></i></div>
+                    <div class="tech-icon" style="color: #ff6b6b;"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="tech-icon" style="color: #845ef7;"><i class="fas fa-server"></i></div>
+                    <div class="tech-icon" style="color: #20c997;"><i class="fas fa-palette"></i></div>
+                </div>
+            </div>
+
+            <!-- Most Used Languages -->
+            <div class="card full-width">
+                <div class="card-title"><i class="fas fa-chart-bar"></i> Most Used Languages</div>
+                <div class="languages-bar">
+                    <div class="lang-segment js"></div>
+                    <div class="lang-segment html"></div>
+                    <div class="lang-segment css"></div>
+                    <div class="lang-segment java"></div>
+                    <div class="lang-segment react"></div>
+                </div>
+                <div class="lang-legend">
+                    <div class="legend-item">
+                        <div class="legend-dot js"></div> JavaScript
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot html"></div> HTML
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot css"></div> CSS
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot java"></div> Java
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot react"></div> React
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
